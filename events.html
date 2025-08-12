@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100" style="background: linear-gradient(135deg, #f0f4ff, #e6e8ff, #fef6ff);">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand text-white" href="home.html">
+                <img src="images/logo.jpg" alt="logo" style="height: 40px;">
+                <span class="fs-5 fw-semibold">Career Training College</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="home.html" onclick="showPage('home')">
+                            <i class="fa-solid fa-house me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="aboutus.html" onclick="showPage('about')">
+                            <i class="fa-solid fa-circle-info me-1"></i>About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="events.html" onclick="showPage('event')">
+                            <i class="fa-solid fa-calendar-days me-1"></i>Events
+                        </a>
+                    </li>
+                    <li class="nav-item" id="loginNav">
+                        <a class="nav-link text-white" href="login.html" onclick="login(); return false;">
+                            <i class="fa-solid fa-right-to-bracket me-1"></i>Login
+                        </a>
+                    </li>
+                    <li class="nav-item d-none" id="logoutNav">
+                        <a class="nav-link text-danger" href="home.html" onclick="logout(); return false;">
+                            <i class="fa-solid fa-right-from-bracket me-1"></i>Logout
+                        </a>
+                    </li>                     
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Event Page -->
+    <div id="eventPage" class="page-content">
+        <div class="container py-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="text-primary">
+                    <i class="fa-solid fa-calendar-days me-2"></i>Upcoming Events
+                </h2>
+                <a href="create_event.html" class="btn btn-primary" onclick="showPage('create-event')"><i class="fa-solid fa-plus me-1"></i>Create Event
+                </a>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <label for="eventDataFilter" class="form-label">Filter by Date</label>
+                    <input type="date" class="form-control" id="eventDataFilter" onchange="filterEvents()">
+                </div>
+                <div class="col-md-4">
+                    <label for="eventLocationFilter" class="form-label">Filter by Location</label>
+                    <input type="text" class="form-control" id="eventLocationFilter" placeholder="Enter location..." onkeyup="filterEvents()">
+                </div>
+                <div class="col-md-4">
+                    <label for="eventsort" class="form-label">Sort by Date</label>
+                    <select class="form-select" id="eventsort" onchange="sortEvents()">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>                       
+                    </select>
+                </div>
+            </div>
+            <div class="row" id="eventsContainer">
+                <!-- Event 1 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card event-card h-100 shadow-sm">
+                    <img src="https://picsum.photos/600/400?random=1" class="card-img-top" alt="Event Image" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('d-none');">
+                    <div class="event-placeholder d-none text-center p-5">
+                      <i class="fa-solid fa-image fa-3x text-muted mb-2"></i>
+                      <p class="text-muted mb-0">Event Image Goes Here</p>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Tech Innovations 2025</h5>
+                      <p class="card-text"><strong>Date:</strong> 10-08-2025</p>
+                      <p class="card-text"><strong>Time:</strong> 10:00 AM</p>
+                      <p class="card-text"><strong>Location:</strong> Perth Convention Centre</p>
+                      <p class="card-text"><strong>Description:</strong> Explore groundbreaking tech trends in AI and robotics.</p>
+                      <a href="delete_event.html" class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash me-1"></i>Delete
+                      </a>                    </div>
+                  </div>
+                </div>
+              
+                <!-- Event 2 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card event-card h-100 shadow-sm">
+                    <img src="https://picsum.photos/600/400?random=12" class="card-img-top" alt="Event Image" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('d-none');">
+                    <div class="event-placeholder d-none text-center p-5">
+                      <i class="fa-solid fa-image fa-3x text-muted mb-2"></i>
+                      <p class="text-muted mb-0">Event Image Goes Here</p>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Wellness Retreat</h5>
+                      <p class="card-text"><strong>Date:</strong> 15-08-2025</p>
+                      <p class="card-text"><strong>Time:</strong> 08:00 AM</p>
+                      <p class="card-text"><strong>Location:</strong> Swan Valley Spa</p>
+                      <p class="card-text"><strong>Description:</strong> A full-day retreat on stress management and meditation.</p>
+                      <a href="delete_event.html" class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash me-1"></i>Delete
+                      </a>                    </div>
+                  </div>
+                </div>
+              
+                <!-- Event 3 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card event-card h-100 shadow-sm">
+                    <img src="https://picsum.photos/600/400?random=15" class="card-img-top" alt="Event Image" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('d-none');">
+                    <div class="event-placeholder d-none text-center p-5">
+                      <i class="fa-solid fa-image fa-3x text-muted mb-2"></i>
+                      <p class="text-muted mb-0">Event Image Goes Here</p>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Coding Bootcamp</h5>
+                      <p class="card-text"><strong>Date:</strong> 01-09-2025</p>
+                      <p class="card-text"><strong>Time:</strong> 09:30 AM</p>
+                      <p class="card-text"><strong>Location:</strong> UWA Tech Labs</p>
+                      <p class="card-text"><strong>Description:</strong> An intensive workshop on full-stack web development.</p>
+                      <a href="delete_event.html" class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash me-1"></i>Delete
+                      </a>                    </div>
+                  </div>
+                </div>
+              </div>        </div>
+    </div>
+
+    <!-- Event page end -->
+
+    <!-- Footer -->
+    <footer class="footer py-4 mt-auto bg-dark text-light">
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <div class="col-md-5 mb-3">
+                    <h5 class="text-white">Organisation Name</h5>
+                    <p class="text-light">© 2025 Organisation Name <br> All rights reserved</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-white">Contact Info</h5>
+                    <p class="text-light mb-1">
+                        <i class="fa-solid fa-envelope me-2"></i>info@organisation.com
+                    </p>
+                    <p class="text-light mb-1">
+                        <i class="fas fa-phone me-2"></i>+61 (234) 567-890
+                    </p>
+                    <p class="text-light mb-0">
+                        <i class="fas fa-map-marker-alt me-2"></i>251-255 Stirling St, Perth, WA 6000
+                    </p>
+                </div>
+                <div class="col-md-3 mb-4 text-center text-md-end">
+                    <h5 class="text-white">Follow Us</h5>
+                    <div class="d-flex justify-content-center justify-content-md-end gap-3">
+                        <a href="https://x.com" class="text-light"><i class="fa-brands fa-square-x-twitter fa-lg"></i>
+                        </a>
+                        <a href="www.linkedin.com" class="text-light"><i class="fa-brands fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="www.facebook.com" class="text-light"><i class="fa-brands fa-square-facebook fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+    <!-- BS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

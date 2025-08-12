@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100" style="background: linear-gradient(135deg, #f0f4ff, #e6e8ff, #fef6ff);">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand text-white" href="home.html">
+                <img src="images/logo.jpg" alt="logo" style="height: 40px;">
+                <span class="fs-5 fw-semibold">Career Training College</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="home.html" onclick="showPage('home')">
+                            <i class="fa-solid fa-house me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="aboutus.html" onclick="showPage('about')">
+                            <i class="fa-solid fa-circle-info me-1"></i>About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="events.html" onclick="showPage('event')">
+                            <i class="fa-solid fa-calendar-days me-1"></i>Events
+                        </a>
+                    </li>
+                    <li class="nav-item" id="loginNav">
+                        <a class="nav-link text-white" href="login.html" onclick="login(); return false;">
+                            <i class="fa-solid fa-right-to-bracket me-1"></i>Login
+                        </a>
+                    </li>
+                    <li class="nav-item d-none" id="logoutNav">
+                        <a class="nav-link text-danger" href="home.html" onclick="logout(); return false;">
+                            <i class="fa-solid fa-right-from-bracket me-1"></i>Logout
+                        </a>
+                    </li>                     
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar end -->
+
+    <!-- Main Content -->
+    <main class="flex-grow-1" id="mainContent">
+        <!-- Home Page -->
+        <div class="container py-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="text-primary">
+                    <i class="fa-solid fa-users me-1"></i>Members Dashboard
+                </h2>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-primary"><i class="fa-solid fa-id-card"></i>
+                        <span id="viewToggleText">Card View</span>
+                    </button>
+                    <a href="create_member.html" class="btn btn-primary"><i class="fa-solid fa-user-plus me-1"></i>Add Member</a>
+                </div>
+            </div>
+            <!-- search and filter -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input type="text" class="form-control" id="searchInput" placeholder="search by name or email..." onkeyup="searchMember()">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <select class="form-select" id="ageFilter" onchange="filterMembers()">
+                        <option value="">All Ages</option>
+                        <option value="18-30">18-30</option>
+                        <option value="31-50">31-50</option>
+                        <option value="51+">51+</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Table view with mock data -->
+            <div id="tableView" class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="membersTapleBody">
+                        <tr>
+                            <td>1</td>
+                            <td>John</td>
+                            <td>Smith</td>
+                            <td>johnsmith@example.com</td>
+                            <td>32</td>
+                             <td>
+                                <a href="edit_member.html" class="btn btn-sm btn-primary d-inline-flex align-item-center"><i class="fa-solid fa-pen-to-square me-1"></i></a>
+                                <a href="delete_member.html" class="btn btn-sm btn-danger d-inline-flex align-items-center"><i class="fa-solid fa-trash me-1"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Priya</td>
+                            <td>Sharma</td>
+                            <td>priyasharma@example.com</td>
+                            <td>29</td>
+                            <td>
+                                <a href="edit_member.html" class="btn btn-sm btn-primary d-inline-flex align-item-center"><i class="fa-solid fa-pen-to-square me-1"></i></a>
+                                <a href="delete_member.html" class="btn btn-sm btn-danger d-inline-flex align-items-center"><i class="fa-solid fa-trash me-1"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Alex</td>
+                            <td>Brown</td>
+                            <td>alexbrown@example.com</td>
+                            <td>41</td>
+                             <td>
+                                <a href="edit_member.html" class="btn btn-sm btn-primary d-inline-flex align-item-center"><i class="fa-solid fa-pen-to-square me-1"></i></a>
+                                <a href="delete_member.html" class="btn btn-sm btn-danger d-inline-flex align-items-center"><i class="fa-solid fa-trash me-1"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Sara</td>
+                            <td>Lee</td>
+                            <td>saralee@example.com</td>
+                            <td>37</td>
+                             <td>
+                                <a href="edit_member.html" class="btn btn-sm btn-primary d-inline-flex align-item-center"><i class="fa-solid fa-pen-to-square me-1"></i></a>
+                                <a href="delete_member.html" class="btn btn-sm btn-danger d-inline-flex align-items-center"><i class="fa-solid fa-trash me-1"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Sita</td>
+                            <td>Ram</td>
+                            <td>sitaram@example.com</td>
+                            <td>24</td>
+                             <td>
+                                <a href="edit_member.html" class="btn btn-sm btn-primary d-inline-flex align-item-center"><i class="fa-solid fa-pen-to-square me-1"></i></a>
+                                <a href="delete_member.html" class="btn btn-sm btn-danger d-inline-flex align-items-center"><i class="fa-solid fa-trash me-1"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination-container">
+                <ul class="pagination ms-auto">
+                    <li class="page-item">
+                        <a class="page-link" href="#">Previous</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer py-4 mt-auto bg-dark text-light">
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <div class="col-md-5 mb-3">
+                    <h5 class="text-white">Organisation Name</h5>
+                    <p class="text-light">© 2025 Organisation Name <br> All rights reserved</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-white">Contact Info</h5>
+                    <p class="text-light mb-1">
+                        <i class="fa-solid fa-envelope me-2"></i>info@organisation.com
+                    </p>
+                    <p class="text-light mb-1">
+                        <i class="fas fa-phone me-2"></i>+61 (234) 567-890
+                    </p>
+                    <p class="text-light mb-0">
+                        <i class="fas fa-map-marker-alt me-2"></i>251-255 Stirling St, Perth, WA 6000
+                    </p>
+                </div>
+                <div class="col-md-3 mb-4 text-center text-md-end">
+                    <h5 class="text-white">Follow Us</h5>
+                    <div class="d-flex justify-content-center justify-content-md-end gap-3">
+                        <a href="https://x.com" class="text-light"><i class="fa-brands fa-square-x-twitter fa-lg"></i>
+                        </a>
+                        <a href="www.linkedin.com" class="text-light"><i class="fa-brands fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="www.facebook.com" class="text-light"><i class="fa-brands fa-square-facebook fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+    <!-- BS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100" style="background: linear-gradient(135deg, #f0f4ff, #e6e8ff, #fef6ff);">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand text-white" href="home.html">
+                <img src="images/logo.jpg" alt="logo" style="height: 40px;">
+                <span class="fs-5 fw-semibold">Career Training College</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="home.html" onclick="showPage('home')">
+                            <i class="fa-solid fa-house me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="aboutus.html" onclick="showPage('about')">
+                            <i class="fa-solid fa-circle-info me-1"></i>About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="events.html" onclick="showPage('event')">
+                            <i class="fa-solid fa-calendar-days me-1"></i>Events
+                        </a>
+                    </li>
+                    <li class="nav-item" id="loginNav">
+                        <a class="nav-link text-white" href="login.html" onclick="login(); return false;">
+                            <i class="fa-solid fa-right-to-bracket me-1"></i>Login
+                        </a>
+                    </li>
+                    <li class="nav-item d-none" id="logoutNav">
+                        <a class="nav-link text-danger" href="home.html" onclick="logout(); return false;">
+                            <i class="fa-solid fa-right-from-bracket me-1"></i>Logout
+                        </a>
+                    </li>                     
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <!-- AboutUs -->
+    <div id="aboutPage" class="page-content">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-primary text-center mb-5">
+                        <i class="fa-solid fa-circle-info me-2"></i>About Our Organisation
+                    </h2>
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="text-primary">
+                                        <i class="fa-solid fa-bullseye me-2"></i>Our Mission
+                                    </h4>
+                                    <p class="text-muted px-2">
+                                        We are dedicated to fostering innovation, collaboration and excellence in our community. Our mission is to provide exceptional services and create meaningful connections that drive positive change and growth.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="text-primary">
+                                        <i class="fa-solid fa-clock-rotate-left me-2"></i>Our History
+                                    </h4>
+                                    <p class="text-muted px-2">
+                                        We are dedicated to fostering innovation, collaboration and excellence in our community. Our mission is to provide exceptional services and create meaningful connections that drive positive change and growth.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="text-primary text-center mb-4">
+                                <i class="fa-solid fa-envelope-open me-2"></i>Contact Information
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-4 text-center mb-3">
+                                    <i class="fa-solid fa-square-envelope fa-2x text-primary mb-2"></i>
+                                    <p class="mb-0"><strong>Email</strong></p>
+                                    <a href="mailto:info@organisation.com" class="text-decoration-none">info@organisation.com</a>
+                                </div>
+                                <div class="col-md-4 text-center mb-3">
+                                    <i class="fa-solid fa-phone fa-2x text-primary mb-2"></i>
+                                    <p class="mb-0"><strong>Phone</strong></p>
+                                    <a href="tel:+1234567890" class="text-decoration-none">+61 (234) 567-890</a>
+                                </div>
+                                <div class="col-md-4 text-center mb-3">
+                                    <i class="fa-solid fa-map-location-dot fa-2x text-primary mb-2"></i>
+                                    <p class="mb-0"><strong>Address</strong></p>
+                                    <p class="mb-0">251-255 Stirling St,<br> Perth, WA 6000
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-primary text-center mb-4">
+                            <i class="fa-solid fa-map-location-dot me-2"></i>Our Location
+                        </h4>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.2933559137614!2d115.86492910981177!3d-31.94436264377771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32a52a4b6095db%3A0xdfe4712a1ea419c8!2sNational%20Institute%20of%20Technology%20(NIT)%20-%20Perth!5e1!3m2!1sen!2sau!4v1752316297786!5m2!1sen!2sau" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> 
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-4 mt-auto bg-dark text-light">
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <div class="col-md-5 mb-3">
+                    <h5 class="text-white">Organisation Name</h5>
+                    <p class="text-light">© 2025 Organisation Name <br> All rights reserved</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-white">Contact Info</h5>
+                    <p class="text-light mb-1">
+                        <i class="fa-solid fa-envelope me-2"></i>info@organisation.com
+                    </p>
+                    <p class="text-light mb-1">
+                        <i class="fas fa-phone me-2"></i>+61 (234) 567-890
+                    </p>
+                    <p class="text-light mb-0">
+                        <i class="fas fa-map-marker-alt me-2"></i>251-255 Stirling St, Perth, WA 6000
+                    </p>
+                </div>
+                <div class="col-md-3 mb-4 text-center text-md-end">
+                    <h5 class="text-white">Follow Us</h5>
+                    <div class="d-flex justify-content-center justify-content-md-end gap-3">
+                        <a href="https://x.com" class="text-light"><i class="fa-brands fa-square-x-twitter fa-lg"></i>
+                        </a>
+                        <a href="www.linkedin.com" class="text-light"><i class="fa-brands fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="www.facebook.com" class="text-light"><i class="fa-brands fa-square-facebook fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+    <!-- BS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
